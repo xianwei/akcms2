@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<br>
+
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td colspan="2"><{$lan.spider_edit}></td>
+			</tr>
+			<form name="editspider" action="admincp.php?action=spiders&job=editspider&id=<{$id}>" method="POST">
+			<tr>
+				<td><{$lan.spidername}></td>
+				<td><input type="text" value="<{$spidername}>" name="spidername" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderrule}></td>
+				<td><select name="rule">
+				<{$selectrules}>
+				</select></td>
+			</tr>
+<script>
+document.editspider.rule.value = <{$rule}>;
+</script>
+			<tr>
+				<td><{$lan.category}></td>
+				<td><select name="category">
+				<{$selectcategories}>
+				</select></td>
+			</tr>
+<script>
+document.editspider.category.value = <{$category}>;
+</script>
+			<tr>
+				<td><{$lan.section}></td>
+				<td><select name="section">
+				<{$selectsections}>
+				</select></td>
+			</tr>
+<script>
+document.editspider.section.value = <{$section}>;
+</script>
+			<tr>
+				<td><{$lan.listurl}></td>
+				<td><input value="<{$listurl}>" name="listurl" size="50">&nbsp;<input value="<{$startid}>" name="startid" size="5">&nbsp;<input value="<{$endid}>" name="endid" size="5"></td>
+			</tr>
+			<tr>
+				<td><{$lan.liststarttag}></td>
+				<td><input value="<{$start}>" name="start" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.listendtag}></td>
+				<td><input value="<{$end}>" name="end" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisturlcharacter}></td>
+				<td><input value="<{$urlcharacter}>" name="urlcharacter" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisturlskip}></td>
+				<td><input value="<{$urlskip}>" name="urlskip" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisttitlecharacter}></td>
+				<td><input value="<{$titlecharacter}>" name="titlecharacter" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisttitleskip}></td>
+				<td><input value="<{$titleskip}>" name="titleskip" size="50"></td>
+			</tr>
+			<tr style="display: <{$forbidautorefresh}>">
+				<td><{$lan.timing}></td>
+				<td>
+<table border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td colspan="2" bgcolor="#EFEFEF"><input type="radio" name="type" value="0"<{if $type eq 0}> checked<{/if}>><{$lan.notiming}></td>
+  </tr>
+  <tr>
+    <td colspan="1" bgcolor="#FFFFFF" width="270"><input type="radio" name="type" value="1"<{if $type eq 1}> checked<{/if}>><{$lan.everyday}><br>
+    	<input type="radio" name="type" value="2"<{if $type eq 2}> checked<{/if}>><{$lan.date}>&nbsp;
+    		<select name="date">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+		</select><br>
+    	<input type="radio" name="type" value="3"<{if $type eq 3}> checked<{/if}>><{$lan.timingday}><select name="day">
+    		<{foreach key=key item=item from=$lan.weekdays}>
+			<option value="<{$key}>"><{$item}></option>
+		<{/foreach}>
+		</select><br></td>
+		<td bgcolor="#FFFFFF">
+			<{$lan.timinghour}><input type="text" name="hour" size="3" value="<{$hour}>">(0-23)&nbsp;<br><{$lan.timingminute}><input type="text" name="minute" size="3" value="<{$minute}>">(0-59)
+		</td>
+  </tr>
+  <script language="javascript">
+  	document.editspider.type.value = '<{$type}>';
+  	document.editspider.date.value = '<{$date}>';
+  	document.editspider.day.value = '<{$day}>';
+  </script>
+  <tr>
+    <td colspan="2" bgcolor="#EFEFEF"><input type="radio" name="type" value="4"<{if $type eq 4}> checked<{/if}>><{$lan.timingdistance}><input type="text" name="distance" size="5" value="<{$distance}>">(1-65535)</td>
+  </tr>
+</table></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="submit" name="saveeditspider" size="20" value="<{$lan.save}>"></td>
+			</tr>
+			</form>
+			</table>
+</body>
+</html>

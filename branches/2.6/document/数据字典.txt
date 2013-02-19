@@ -1,0 +1,10 @@
+ak_stats±í
+
+type
+0 pv
+1 ip
+
+by
+0 by day
+1 by month
+2 by year

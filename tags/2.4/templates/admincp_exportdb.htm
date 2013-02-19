@@ -1,0 +1,38 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>">
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<table align="center" cellpadding="0" cellspacing="0" class="commontable">
+	<tr>
+		<td>
+		<table border="0" cellspacing="1" cellpadding="4" width="100%">
+			<tr class="header">
+				<td colspan="5"><{$lan.exportdb}></td>
+			</tr>
+			<form action="db.php?action=exportdb" method="post">
+			<tr>
+				<td colspan="5">
+					<{$lan.exportmode}>
+					<select name="mode">
+						<option value="common"><{$lan.exportcommonmode}></option>
+						<option value="all"><{$lan.exportwholemode}></option>
+					</select><br>
+					<{$lan.maxfilesize}>
+					<input type="text" value="2048" name="packsize" size="8"> KB
+				</td>
+			</tr>
+			<tr>
+				<td colspan="5" align="center">
+					<input type="submit" name="submit" value="<{$lan.exportdb}>">
+				</td>
+			</tr>
+			</form>
+		</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

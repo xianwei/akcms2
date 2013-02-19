@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<table cellspacing="0" cellpadding="0" width="99%" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.system_templates}>&nbsp;&nbsp;->&nbsp;&nbsp;<{$templatename}><iframe name="work" width="0" height="0" src="" style="display:none"></iframe></td>
+		</tr>
+		<tr>
+		<form action="admincp.php?action=template&job=save" method="POST">
+			<td align="center">
+			<input type="hidden" name="template" value="<{$template}>">
+			<textarea name="html" rows="25" style="width:99%"><{$str_template}></textarea><br>
+			<input type="submit" value="<{$lan.save}>" name="save_template">
+			</td>
+		</form>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

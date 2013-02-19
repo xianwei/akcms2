@@ -1,0 +1,33 @@
+演示1：<br>
+取1，2栏目的文章，并以li形式显示<br>
+<ul>
+<{getitems category="1,2" template="<li><a href=()[url]()>[title]</a></li>[n]"}>
+</ul>
+<hr>
+演示2：<br>
+取2栏目的前10篇文章，并截取题目的前10个字节（5个汉字）<br>
+<{getitems category="2" num="4" length="10"}>
+<hr>
+演示3：<br>
+取2栏目的文章，并显示到一个select下拉菜单中<br>
+<select>
+<{getitems category="2" template="<option value=()[itemid]()>[texttitle]</option>[n]"}>
+</select>
+<hr>
+演示4：<br>
+取3栏目的文章，按照访问量排序，访问量高的排在前面，如果访问量一样，则id小的在前面<br>
+<{getitems orderby="pv_reverse,id"}>
+<hr>
+演示5：<br>
+从全部文章中取，但是排除4，5栏目<br>
+<{getitems skipcategory="4,5"}>
+<hr>
+演示6：<br>
+调用变量<br>
+<{$v_sitename}>
+<hr>
+演示7：<br>
+调用子模板<br>
+<{include file="stat.htm"}>
+<hr>
+更多演示，请访问在线手册：<a href="http://www.akcms.com/manual/manual.htm" target="_blank">http://www.akcms.com/manual/manual.htm</a>

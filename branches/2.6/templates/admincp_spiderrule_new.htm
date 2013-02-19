@@ -1,0 +1,131 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function deletespider(id) {
+	if(confirm('<{$lan.suredelspider}>')) {
+		document.location='admincp.php?action=spiders&job=delspider&id='+id;
+	}
+}
+function deleterule(id) {
+	if(confirm('<{$lan.suredelspiderrule}>')) {
+		document.location='admincp.php?action=spiders&job=delrule&id='+id;
+	}
+}
+function checkspider() {
+	document.addspider.save.disabled = true;
+	if(document.addspider.spidername.value == "") {
+		alert('spider title must be offered')
+		document.addspider.save.disabled = false;
+		return false;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+
+
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+	<form action="admincp.php?action=spiders&job=addrule" method="post" name="addrule">
+	<tr class="header">
+		<td colspan="10"><div class="righttop"><a href="http://www.akcms.com/manual/spider.htm" target="_blank"><{$lan.help}></a></div><{$lan.addrule}></td>
+	</tr>
+	<tr>
+		<td><{$lan.rulename}></td>
+		<td><input type="text" value="" name="rulename" class="mustoffer" onfocus="must(this)"></td>
+	</tr>
+	<tr>
+		<td><{$lan.exampleurl}></td>
+		<td><input type="text" value="http://" name="exampleurl" class="mustoffer" size="50" onfocus="must(this)"></td>
+	</tr>
+	<tr>
+		<td><{$lan.title}></td>
+		<td><input type="text" name="title" value="" size="50" class="mustoffer" onfocus="must(this)"></td>
+	</tr>
+	<tr>
+		<td><{$lan.shorttitle}></td>
+		<td><input type="text" name="shorttitle" value="" size="50"></td>
+	</tr>
+	<tr>
+		<td><{$lan.aimurl}></td>
+		<td><input type="text" name="aimurl" value="" size="50"></td>
+	</tr>
+	<tr>
+		<td><{$lan.author}></td>
+		<td><input type="text" name="author" value="" size="15"></td>
+	</tr>
+	<tr>
+		<td><{$lan.source}></td>
+		<td><input type="text" name="source" value="" size="15"></td>
+	</tr>
+	<tr>
+		<td><{$lan.editor}></td>
+		<td><input type="text" name="editor" value="" size="15"></td>
+	</tr>
+	<tr>
+		<td><{$lan.template}></td>
+		<td>
+		<select name="template">
+		<option value=""><{$lan.default}></option>
+		<{$selecttemplates}>
+		</select>
+		</td>
+	</tr>
+	<tr>
+		<td><{$lan.digest}></td>
+		<td><input type="text" name="digest" value="" size="60"></td>
+	</tr>
+	<tr>
+		<td><{$lan.data}></td>
+		<td><input type="text" name="data" value="" size="60" class="mustoffer" onfocus="must(this)"></td>
+	</tr>
+	<tr>
+		<td><{$lan.keywords}></td>
+		<td><input type="text" name="keywords" value="" size="60"></td>
+	</tr>
+	<tr>
+		<td><{$lan.filename}></td>
+		<td><input type="text" name="filename" value="" size="60"></td>
+	</tr>
+	<tr>
+		<td><{$lan.picture}></td>
+		<td><input type="text" name="picture" value="" size="60"></td>
+	</tr>
+	<tr>
+		<td><{$lan.order}></td>
+		<td><input type="text" name="order" value=""></td>
+	</tr>
+	<tr>
+		<td><{$lan.ifcreatehtml}></td>
+		<td>
+		<select name="html">
+		<option value="1"><{$lan.yes}></option>
+		<option value="0"><{$lan.no}></option>
+		</select>
+		</td>
+	</tr>
+	<{$exts}>
+	<{$fields}>
+	<tr>
+		<td><{$lan.character}></td>
+		<td><textarea name="character" cols="50" rows="5" style="width:100%"></textarea></td>
+	</tr>
+	<tr>
+		<td><{$lan.skip}></td>
+		<td><textarea name="skip" cols="50" rows="5" style="width:100%"></textarea></td>
+	</tr>
+	<tr>
+		<td><{$lan.replace}></td>
+		<td><textarea name="replace" cols="50" rows="5" style="width:100%"></textarea></td>
+	</tr>
+	<tr>
+		<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="submitflag"</td>
+	</tr>
+	</form>
+</table>
+</body>
+</html>

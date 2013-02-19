@@ -1,0 +1,40 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>">
+<title><{$sysname}> <{$sysedition}> <{$lan.install}></title>
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="block2"></div>
+	<table cellspacing="0" cellpadding="0" align="center" class="commontable" width="300">
+		<tr>
+			<td><table border="0" cellspacing="1" cellpadding="4" width="100%">
+					<tr class="header">
+						<td colspan="4"><{$sysname}> <{$sysedition}> Install</td>
+					</tr>
+					<tr>
+						<td>
+<select onchange="document.location='install.php?language=<{$language}>&dbtype='+this.value">
+<option value=""><{$lan.pleasechoosedb}></option>
+<option value="mysql">MySQL</option>
+<option value="sqlite">SQLite</option>
+</select>&nbsp;&nbsp;&nbsp;<{$lan.dbtypedescription}><br>
+<hr>
+<{$lan.servertest}>:<br>
+MySQL:<span id="mysqlsport"></span><br>
+SQLite:<span id="sqlitesport"></span><br>
+</td>
+					</tr>
+			</table></td>
+		</tr>
+	</table>
+<script>
+lan = new Array();
+lan[0] = '<{$lan.nosupport}>';
+lan[1] = '<{$lan.support}>';
+document.getElementById("mysqlsport").innerHTML = lan[<{$mysqlsupport}>];
+document.getElementById("sqlitesport").innerHTML = lan[<{$sqlitesupport}>];
+</script>
+</body>
+</html>

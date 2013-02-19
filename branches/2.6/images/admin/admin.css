@@ -1,0 +1,32 @@
+*{scrollbar-base-color:#F8F8F8;scrollbar-arrow-color:#698CC3;font-size:12px;font-family:Verdana;font-weight:normal;margin:0px;text-decoration:none;}
+body,frame{background-color:#9EB6D8;margin:0px;padding:0px;}
+b{font-weight:bold;}
+a,a:visited{color:#003366}
+a:hover{text-decoration:underline}
+table{word-break:break-all;}
+input{font-family:11px}
+textarea{font-family:Courier New;}
+form{margin:0px;border:0px;padding:0px;}
+
+.mustoffer{background-color:#FFFFD0;background-image:url(mustoffer.gif);background-repeat:no-repeat;background-position:right top;}
+.commontable{background:#D6E0EF;border:1px solid #698CC3;margin:0px auto;}
+.commontable td{background:#F8F8F8}
+.header{font:11px Tahoma,Verdana;color:#FFFFFF;font-weight:bold;background-color:#698CC3}
+.header a,.header a:visited{color:#FFFFFF}
+.header td{background:#698CC3}
+.mininum,.mininum *{font-size:9px;}
+
+.block{display:block;height:3px;overflow:hidden;}
+.block2{display:block;height:10px;overflow:hidden;}
+#query_debug{border:1px dashed #222222;width:550px;margin:0px auto;font-family:Courier New;line-height:20px;background-color:#FFFFE0;padding:10px;text-align:left;}
+.login{text-align:right;}
+
+.bold{font-weight:bold}
+.red{color:#FF0000}
+.green{color:#336600}
+.alert{color:#FF0000}
+.righttop{float:right;}
+
+//树形无限分类
+#categoriestree img{margin:0px 5px;}
+.layer_1,.layer_2,.layer_3{padding-left:40px;}

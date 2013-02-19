@@ -1,0 +1,97 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function deletesection(id) {
+	if(confirm('<{$lan.suredelsection}>')) {
+		document.location='admincp.php?action=deletesection&id='+id;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+	<tr class="header">
+		<td width="35"><{$lan.id}></td>
+		<td width="90"><{$lan.section_name}></td>
+		<td><{$lan.description}></td>
+		<td width="60"><{$lan.item_num}></td>
+		<td width="60"><{$lan.createdefault}></td>
+		<td width="60"><{$lan.createlist}></td>
+		<td width="80"><div align="center"><strong><{$lan.order}></strong></div></td>
+		<td width="50"><div align="center"><strong><{$lan.delete}></strong></div></td>
+	</tr>
+	<{$str_sections}>
+</table>
+<div class="block"></div>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+<form action="admincp.php?action=newsection" method="post">
+	<tr class="header">
+		<td colspan="10"><{$lan.section_new}></td>
+	</tr>
+	<tr>
+		<td width="50"><{$lan.section_name}></td>
+		<td><input type="text" value="" name="section" class="mustoffer" onfocus="must(this)"></td>
+	</tr>
+	<tr>
+		<td><{$lan.alias}></td>
+		<td><input type="text" value="" name="alias"></td>
+	</tr>
+	<tr>
+		<td><{$lan.description}></td>
+		<td><textarea name="description" cols="60" rows="5"></textarea></td>
+	</tr>
+	<tr>
+		<td><{$lan.keywords}></td>
+		<td><textarea name="keywords" cols="60" rows="3"></textarea></td>
+	</tr>
+	<tr>
+		<td><{$lan.defaulttemplate}></td>
+		<td><select name="defaulttemplate">
+		<option value=""><{$lan.default}></option>
+		<{$selecttemplates}>
+		</select></td>
+    </tr>
+    <tr>
+      <td><{$lan.listtemplate}></td>
+      <td><select name="listtemplate">
+        <option value=""><{$lan.default}></option>
+        <{$selecttemplates}>
+      </select>
+      </td>
+    </tr>
+    <tr>
+	<td><{$lan.ifcreatehtml}></td>
+	<td>
+		<input type="radio" name="html" value="0"<{if $html eq 0}> checked<{/if}>><{$lan.withglobal}>
+		<input type="radio" name="html" value="1"<{if $html eq 1}> checked<{/if}>><{$lan.yes}>
+		<input type="radio" name="html" value="-1"<{if $html eq -1}> checked<{/if}>><{$lan.no}>
+</td>
+</tr>
+	<tr>
+		<td><{$lan.sectionhomemethod}></td>
+		<td><input type="text" value="" name="sectionhomemethod" size="50"><br>
+        (<{$lan.leaveempty}>:"<{$setting_sectionhomemethod}>"&nbsp;<a href="setting.php?action=generally"><{$lan.modifyglobalsetting}></a>)<br>
+	<{$lan.sectionhomemethod_description}></td>
+	</tr>
+	<tr>
+		<td><{$lan.sectionpagemethod}></td>
+		<td><input type="text" value="" name="sectionpagemethod" size="50"><br>
+        (<{$lan.leaveempty}>:"<{$setting_sectionpagemethod}>"&nbsp;<a href="setting.php?action=generally"><{$lan.modifyglobalsetting}></a>)<br>
+	<{$lan.sectionpagemethod_description}></td>
+	</tr>
+	<tr>
+		<td><{$lan.order}></td>
+		<td><input type="text" value="0" name="order"></td>
+	</tr>
+	<tr>
+		<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="section_new_submit"></td>
+	</tr>
+	</form>
+</table>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+<body style="margin: 0px;">
+<div class="block"></div>
+<div class="block"></div>
+<table border="0" cellspacing="1" cellpadding="4" width="100" class="commontable">
+	<tr class="header" align="center">
+		<td><{$lan.content_item}></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=newitem" target="mainFrame"><{$lan.item_new}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=items" target="mainFrame"><{$lan.item_manage}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=specialpages" target="mainFrame"><{$lan.system_specialpage}></a></td>
+	</tr>
+</table>
+<{if $iscreator == 1}>
+<div class="block"></div>
+<table border="0" cellspacing="1" cellpadding="4" width="100" class="commontable">
+	<tr class="header" align="center">
+		<td><{$lan.system_setting}></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=categories" target="mainFrame"><{$lan.system_categories}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=sections" target="mainFrame"><{$lan.system_sections}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=templates" target="mainFrame"><{$lan.system_templates}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=variables" target="mainFrame"><{$lan.system_variables}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=spiders" target="mainFrame"><{$lan.system_spiders}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=itemexts" target="mainFrame"><{$lan.addfield}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="theme.php" target="mainFrame"><{$lan.installtheme}></a></td>
+	</tr>
+</table>
+<{/if}>
+<div class="block"></div>
+<table border="0" cellspacing="1" cellpadding="4" width="100" class="commontable">
+	<tr class="header" align="center">
+		<td><{$lan.statistics}></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="pv.php" target="mainFrame"><{$lan.pvbyday}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="pv.php?action=month" target="mainFrame"><{$lan.pvbymonth}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=items&orderby=pageview" target="mainFrame"><{$lan.pvbyitem}></a></td>
+	</tr>
+</table>
+<div class="block"></div>
+<table border="0" cellspacing="1" cellpadding="4" width="100" class="commontable">
+	<tr class="header" align="center">
+		<td><{$lan.batchcreatehtml}></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=createcategory" target="mainFrame"><{$lan.createcategory}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=createitem" target="mainFrame"><{$lan.createitem}></a></td>
+	</tr>
+</table>
+<{if $iscreator == 1}>
+<div class="block"></div>
+<table border="0" cellspacing="1" cellpadding="4" width="100" class="commontable">
+	<tr class="header" align="center">
+		<td><{$lan.managedb}></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="db.php?action=exportdb" target="mainFrame"><{$lan.exportdb}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="db.php?action=display" target="mainFrame"><{$lan.importdb}></a></td>
+	</tr>
+</table>
+<{/if}>
+<{if $iscreator == 1}>
+<div class="block"></div>
+<table border="0" cellspacing="1" cellpadding="4" width="100" class="commontable">
+	<tr class="header" align="center">
+		<td><{$lan.setting}></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=generally" target="mainFrame"><{$lan.generallysetting}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=functions" target="mainFrame"><{$lan.functionssetting}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=cp" target="mainFrame"><{$lan.cpsetting}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=front" target="mainFrame"><{$lan.frontsetting}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=item" target="mainFrame"><{$lan.itemsetting}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=bbs" target="mainFrame"><{$lan.bbssetting}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=blog" target="mainFrame"><{$lan.blogsetting}></a></td>
+	</tr>
+	<!--
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=email" target="mainFrame"><{$lan.emailsetting}></a></td>
+	</tr>-->
+	<tr>
+		<td>&nbsp;<a href="setting.php?action=attach" target="mainFrame"><{$lan.attachsetting}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="setting.php" target="mainFrame"><{$lan.wholesetting}></a></td>
+	</tr>
+</table>
+<{/if}>
+<div class="block"></div>
+<table border="0" cellspacing="1" cellpadding="4" width="100" class="commontable">
+	<tr class="header" align="center">
+		<td><{$lan.account}></td>
+	</tr>
+	<{if $iscreator == 1}>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=manageaccounts" target="mainFrame"><{$lan.accountmanage}></a></td>
+	</tr>
+	<{/if}>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=changepassword" target="mainFrame"><{$lan.changepassword}></a></td>
+	</tr>
+	<tr>
+		<td>&nbsp;<a href="admincp.php?action=logout" target="_parent"><{$lan.logout}></a></td>
+	</tr>
+</table>
+</body>
+</html>

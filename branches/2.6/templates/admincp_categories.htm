@@ -1,0 +1,27 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/newadmin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function deletecategory(id) {
+	if(confirm('<{$lan.suredelcategory}>')) {
+		document.location='admincp.php?action=deletecategory&id='+id;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<div class="commontable">
+	<div class="header">
+		<{$lan.system_categories}>
+	</div>
+	<div class="content" id="categoriestree">
+		<{$categoriestree}>
+		<div style="clear:both;"></div>
+	</div>
+</div>
+</body>
+</html>

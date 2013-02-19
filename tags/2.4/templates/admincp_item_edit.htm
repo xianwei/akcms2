@@ -1,0 +1,238 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="./include/common.js"></script>
+<script language="">
+function setattach(num) {
+	text = "";
+	for(i = 1; i <= num; i ++) {
+		text += "<{$lan.attach}>&nbsp;" + i + "." + first.innerHTML + "<br>";
+	}
+	other.innerHTML = text;
+}
+function copyattachtag(txt) {
+	window.clipboardData.setData("Text", "[attach]" + txt + "[/attach]");
+	alert("<{$lan.copyattachtag}>");
+}
+function delattach(id) {
+	if(confirm("<{$lan.suredelattach}>")) {
+		work.location = "admincp.php?action=delattach&id=" + id;
+	}
+}
+function checksubmit() {
+	t = $('title');
+	c = $('category');
+	s = $('submit');
+	s.disabled = true;
+	if(t.value == "") {
+		alert("<{$lan.notitle}>");
+		t.focus();
+		s.disabled = false;
+		return false;
+	}
+	if(c.value == "0") {
+		alert("<{$lan.nocategory}>");
+		c.focus();
+		s.disabled = false;
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<span id="first" style="display:none">
+<input type="file" name="attach[]" value=""><br>
+<{$lan.description}><{$lan.limit255}><br><textarea name="description[]" cols="60" rows="3"></textarea>
+</span>
+<div class="block"></div>
+<div class="block"></div>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+<form enctype="multipart/form-data" action="admincp.php?action=edititem&id=<{$id}>" method="post" name="edititem" onsubmit="return checksubmit()">
+<input type="hidden" name="MAX_FILE_SIZE" value="<{$maxattachsize}>" />
+<tr class="header">
+	<td colspan="10"><{$lan.item_edit}><iframe name="work" width="1" height="1" src="" style="display:none"></iframe></td>
+</tr>
+<tr>
+	<td width="50"><{$lan.title}></td>
+	<td><input type="text" name="title" id="title" value="<{$title}>" size="50" class="mustoffer" onfocus="must(this)">
+	<{if $color_show eq "1"}>
+	<select name="titlecolor"> 
+		<option value=""><{$lan.color}></option> 
+		<{foreach name=fonts item=fontcolor from=$lan.colors}>
+		<option value="<{$fontcolor}>" style='background-color:<{$fontcolor}>'>&nbsp;</option>
+		<{/foreach}>
+	</select>
+	<script>
+		document.edititem.titlecolor.value = "<{$titlecolor}>";
+	</script>
+	<{/if}>
+	<{if $style_show eq "1"}>
+	<select name="titlestyle"> 
+		<option value=""><{$lan.style}></option> 
+		<option value="b"><{$lan.bold}></option>
+		<option value="i"><{$lan.italic}></option>
+	</select>
+	<script>
+		document.edititem.titlestyle.value = "<{$titlestyle}>";
+	</script>
+	<{/if}>
+	<a href="admincp.php?action=comments&id=<{$id}>"><{$lan.managecomment}>(<{$commentnum}>)</a>
+	</td>
+</tr>
+<{if $shorttitle_show eq "1"}>
+<tr>
+	<td><{$lan.shorttitle}></td>
+	<td><input type="text" name="shorttitle" value="<{$shorttitle}>" size="50"></td>
+</tr>
+<{/if}>
+<{if $aimurl_show eq "1"}>
+<tr>
+	<td><{$lan.aimurl}></td>
+	<td><input type="text" name="aimurl" value="<{$aimurl}>" size="50"></td>
+</tr>
+<{/if}>
+<{if $author_show eq "1"}>
+<tr>
+	<td><{$lan.author}></td>
+	<td><input type="text" name="author" value="<{$author}>" size="15"></td>
+</tr>
+<{/if}>
+<{if $source_show eq "1"}>
+<tr>
+	<td><{$lan.source}></td>
+	<td><input type="text" name="source" value="<{$source}>" size="15"></td>
+</tr>
+<{/if}>
+<tr>
+	<td><{$lan.category}></td>
+	<td>
+	<select name="category" id="category" class="mustoffer" onfocus="must(this)">
+	<{$selectcategories}>
+	</select>
+	</td>
+</tr>
+<script>
+document.edititem.category.value = <{$category}>;
+</script>
+<{if $section_show eq "1"}>
+<tr>
+	<td><{$lan.section}></td>
+	<td>
+	<select name="section">
+	<{$selectsections}>
+	</select>
+	</td>
+</tr>
+<script>
+document.edititem.section.value = <{$section}>;
+</script>
+<{/if}>
+<{if $template_show eq "1"}>
+<tr>
+	<td><{$lan.template}></td>
+	<td>
+	<select name="template">
+	<option value=""><{$lan.default}></option>
+	<{$selecttemplates}>
+	</select>
+	</td>
+</tr>
+<script>
+document.edititem.template.value = "<{$template}>";
+</script>
+<{/if}>
+<{if $usefilename eq "1" }>
+<{if $filename_show eq "1"}>
+<tr>
+	<td><{$lan.filename}></td>
+	<td><input type="text" name="filename" size="40" value="<{$filename}>"></td>
+</tr>
+<{/if}>
+<{/if}>
+<{if $digest_show eq "1"}>
+<tr>
+	<td><{$lan.digest}></td>
+	<td><textarea name="digest" cols="60" rows="4"><{$digest}></textarea></td>
+</tr>
+<{/if}>
+<{if $richtext eq "0"}>
+<tr>
+	<td><{$lan.text}></td>
+	<td><{include file="admincp_editor.htm"}></td>
+</tr>
+<{else}>
+<tr>
+	<td><{$lan.text}></td>
+	<td><{include file="admincp_richtext_editor.htm"}></td>
+</tr>
+<{/if}>
+<{if $keywords_show eq "1"}>
+<tr>
+	<td><{$lan.keywords}></td>
+	<td><input type="text" name="keywords" value="<{$keywords}>" size="60"></td>
+</tr>
+<{/if}>
+<{if $picture_show eq "1"}>
+<tr>
+	<td><{$lan.picture}></td>
+	<td>
+		<input type="hidden" name="picture" value="" size="50">
+		<input type="text" name="newpicture" value="" size="50"><br>
+	<input type="file" name="uploadpicture" value="">
+	<{if $picture}><br><a href="<{$truepicture}>" target="_blank"><img id="preview" src="<{$truepicture}>" width="32" height="32" border="0" alt="<{$lan.clickfororipic}>" /></a><br><input type="button" value="<{$lan.deletepicture}>" onclick="document.edititem.picture.value = 'del';document.images.preview.src='images/admin/nopicture.gif';alert('<{$lan.deletepictureok}>');">
+	<{/if}>
+	</td>
+</tr>
+<{/if}>
+<{if $order_show eq "1"}>
+<tr>
+	<td><{$lan.order}></td>
+	<td><input type="text" name="order" value="<{$orderby}>"></td>
+</tr>
+<{/if}>
+<{if $attach_show eq "1"}>
+<input type="hidden" name="attachflag" size="20" value="<{$attachflag}>">
+<tr>
+	<td valign="top"><{$lan.attach}></td>
+	<input type="hidden" name="MAX_FILE_SIZE" value="<{$maxattachsize}>" />
+	<td>
+		<table width="650" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+		<tr class="header">
+			<td width="15"><{$lan.id}></td>
+			<td><{$lan.filename}></td>
+			<td><{$lan.date}></td>
+			<td><{$lan.description}></td>
+			<td><{$lan.filesize}></td>
+		</tr>
+		<{$attachs}>
+		</table><br>
+		<{$lan.attachnum}>
+		<select onchange="setattach(this.value)">
+			<option value="1" selected>1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br><br>
+	<img src="" name="attachpreview" id="attachpreview" onclick="alert(this.fileSize)" width="0" height="0">
+	<div id="other"></div>
+	<script>
+		setattach(1);
+	</script>
+	</td>
+</tr>
+<{/if}>
+<{$exts}>
+<tr>
+	<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="submit" id="submit"></td>
+</tr>
+</form>
+</table>
+</body>
+</html>

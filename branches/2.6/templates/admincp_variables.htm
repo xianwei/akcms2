@@ -1,0 +1,71 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="include/common.js"></script>
+<script language="javascript">
+function deletevariable(variable) {
+	if(confirm('<{$lan.suredelvariable}>')) {
+		document.location='admincp.php?action=variables&job=delete&variable=' + variable;
+	}
+}
+</script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<table cellspacing="0" cellpadding="0" width="99%" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><div class="righttop"><a href="http://www.akcms.com/manual/custom-variables.htm" target="_blank"><{$lan.help}></a></div><{$lan.system_variables}></td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="30"><{$lan.id}></td>
+				<td width="100"><{$lan.variable}></td>
+				<td width="100"><{$lan.description}></td>
+				<td width="30"><{$lan.value}></td>
+				<td width="30"><{$lan.edit}></td>
+				<td width="30"><{$lan.delete}></td>
+			</tr>
+			<{$variables}>
+			</table>
+			<br>
+			<form action="admincp.php?action=variables&job=new" method="post">
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td colspan="2"><{$lan.addnewvariable}></td>
+			</tr>
+			<tr>
+				<td><{$lan.variable}></td>
+				<td><input type="text" name="variable" size="20" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.description}></td>
+				<td><textarea name="description" cols="60" rows="3" class="mustoffer" onfocus="must(this)"></textarea></td>
+			</tr>
+			<tr>
+				<td><{$lan.value}></td>
+				<td><textarea name="value" cols="60" rows="3" class="mustoffer" onfocus="must(this)"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center">
+				<input type="submit" name="addnewtemplate" value="<{$lan.save}>">
+				</td>
+			</tr>
+			</table>
+			</form><br>
+			<{$lan.variablestip}>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

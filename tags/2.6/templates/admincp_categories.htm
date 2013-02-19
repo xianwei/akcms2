@@ -1,0 +1,145 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function deletecategory(id) {
+	if(confirm('<{$lan.suredelcategory}>')) {
+		document.location='admincp.php?action=deletecategory&id='+id;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+<tr class="header">
+	<td width="30"><{$lan.id}></td>
+	<td width="90"><{$lan.category_name}></td>
+	<td><strong><{$lan.description}></strong></td>
+	<td width="60"><strong><{$lan.pageview}></strong></td>
+	<td width="60"><strong><{$lan.item_num}></strong></td>
+	<td width="60"><{$lan.createdefault}></td>
+	<td width="60"><{$lan.createlist}></td>
+	<td width="55"><div align="center"><strong><{$lan.order}></strong></div></td>
+	<td width="50"><div align="center"><strong><{$lan.delete}></strong></div></td>
+</tr>
+<{$str_categories}>
+</table>
+<div class="block"></div>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+<form action="admincp.php?action=newcategory" method="post" name="newcategory">
+<tr class="header">
+	<td colspan="10"><{$lan.category_new}></td>
+</tr>
+<tr>
+	<td width="100"><{$lan.category_name}></td>
+	<td><input type="text" value="" name="category" class="mustoffer" onfocus="must(this)"></td>
+</tr>
+<tr>
+	<td><{$lan.alias}></td>
+	<td><input type="text" value="" name="alias"></td>
+</tr>
+<tr>
+	<td><{$lan.categoryup}></td>
+	<td><select name="categoryup">
+	<option value="0"><{$lan.rootcategory}></option>
+	<{$selectcategories}>
+	</select>
+	</td>
+</tr>
+<tr>
+	<td><{$lan.description}></td>
+	<td><textarea name="description" cols="60" rows="3"></textarea></td>
+</tr>
+<tr>
+	<td><{$lan.keywords}></td>
+	<td><textarea name="keywords" cols="60" rows="3"></textarea></td>
+</tr>
+<tr>
+	<td><{$lan.order}></td>
+	<td><input type="text" value="0" name="order"></td>
+</tr>
+<tr>
+	<td><{$lan.path}></td>
+	<td><input type="text" name="path" value="<{$path}>"></td>
+</tr>
+<tr>
+	<td><{$lan.itemtemplate}></td>
+	<td><select name="itemtemplate">
+	<option value=""><{$lan.default}></option>
+	<{$selectitemtemplates}>
+	</select>
+	</td>
+</tr>
+<tr>
+	<td><{$lan.defaulttemplate}></td>
+	<td><select name="defaulttemplate">
+	<option value=""><{$lan.default}></option>
+	<{$selecttemplates}>
+	</select>
+</td>
+</tr>
+<tr>
+	<td><{$lan.listtemplate}></td>
+	<td><select name="listtemplate">
+	<option value=""><{$lan.default}></option>
+	<{$selecttemplates}>
+	</select>
+	</td>
+</tr>
+<tr>
+	<td><{$lan.ifcreatehtml}></td>
+	<td><input type="radio" name="html" value="0" checked>
+	<{$lan.withglobal}>
+	<input type="radio" name="html" value="1">
+	<{$lan.yes}>
+	<input type="radio" name="html" value="-1">
+	<{$lan.no}></td>
+</tr>
+<tr>
+	<td><{$lan.ifusefilename}></td>
+	<td><input type="radio" name="usefilename" value="0" checked>
+	<{$lan.withglobal}>
+	<input type="radio" name="usefilename" value="1"><{$lan.yes}>
+	<input type="radio" name="usefilename" value="-1"><{$lan.no}>
+	</td>
+</tr>
+<tr>
+	<td><{$lan.storemethod}></td>
+	<td><input type="text" value="" name="storemethod" size="50"><br>(<{$lan.leaveempty}>:"<{$setting_storemethod}>"&nbsp;<a href="setting.php?action=generally"><{$lan.modifyglobalsetting}></a>)<br>
+	<{$lan.storemethod_description}>
+	</td>
+</tr>
+<tr>
+	<td><{$lan.categoryhomemethod}></td>
+	<td><input type="text" value="" name="categoryhomemethod" size="50"><br>(<{$lan.leaveempty}>:"<{$setting_categoryhomemethod}>"&nbsp;<a href="setting.php?action=generally"><{$lan.modifyglobalsetting}></a>)<br>
+	<{$lan.categoryhomemethod_description}>
+	</td>
+</tr>
+<tr>
+	<td><{$lan.categorypagemethod}></td>
+	<td><input type="text" value="" name="categorypagemethod" size="50"><br>(<{$lan.leaveempty}>:"<{$setting_categorypagemethod}>"&nbsp;<a href="setting.php?action=generally"><{$lan.modifyglobalsetting}></a>)<br>
+	<{$lan.categorypagemethod_description}>
+	</td>
+</tr>
+<tr>
+	<td><{$lan.relateforum}></td>
+	<td><{$forum_select}> </td>
+</tr>
+<{if $extfieldshtml ne ''}>
+<tr>
+	<td><{$lan.extfieldslist}></td>
+	<td><{$extfieldshtml}></td>
+</tr>
+<{/if}>
+<tr>
+	<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="category_new_submit"></td>
+</tr>
+</form>
+</table>
+<iframe name="work" style="display:none"></iframe>
+</body>
+</html>

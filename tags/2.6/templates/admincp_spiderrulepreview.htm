@@ -1,0 +1,19 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<table cellspacing="1" cellpadding="5" width="99%" align="center" class="commontable">
+<tr class="header">
+<td colspan="3"><{$lan.preview}></td>
+</tr>
+<{foreach from=$result key=key item=item}>
+<tr><td><{$lan.$key}></td></tr>
+<tr><td><{$item}>&nbsp;</td></tr>
+<{/foreach}>
+</table>
+</body>
+</html>

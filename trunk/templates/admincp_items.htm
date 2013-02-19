@@ -1,0 +1,127 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function confirmdelete() {
+	if(!confirm('<{$lan.suredelitem}>')) {
+		return false;
+	}
+}
+function invertselection() {
+	for(i = 0; i < document.batchform.elements.length; i++) {
+		if(document.batchform.elements[i].type == 'checkbox' && document.batchform.elements[i].name == 'batch[]') {
+			if(document.batchform.elements[i].checked == true) {
+				document.batchform.elements[i].checked = false;
+			} else {
+				document.batchform.elements[i].checked = true;
+			}
+		}
+	}
+}
+function batch() {
+	batchtype = document.batchform.batchtype;
+	document.getElementById("neworder").style.display = "none";
+	document.getElementById("newcategory").style.display = "none";
+	if(batchtype.value == "setorder") {
+		document.getElementById("neworder").style.display = "";
+	}
+	if(batchtype.value == "setcategory") {
+		document.getElementById("newcategory").style.display = "";
+	}
+}
+</script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<iframe name="work" style="display:none"></iframe>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+  <form action="admincp.php" method="get">
+    <tr class="header">
+      <td colspan="10"><{$lan.query}></td>
+    </tr>
+    <tr>
+      <td><{$lan.id}>&nbsp;
+          <input type="text" value="" name="id" size="5">
+        <{$lan.key}>&nbsp;
+        <input type="text" value="" name="key" size="10">
+        <{$lan.editor}>&nbsp;
+        <input type="text" value="" name="editor" size="7">
+        <{$lan.category}>&nbsp;
+        <select name="category">
+          <option value="0"><{$lan.allcategory}></option>
+          <{$selectcategories}>
+        </select>
+        <{$lan.section}>&nbsp;
+        <select name="section">
+          <option value="0"><{$lan.allsection}></option>
+          <{$selectsections}>
+        </select>
+        <{$lan.orderby}>
+        <select name="orderby">
+          <option value="orderby"><{$lan.order}></option>
+          <option value="pageview"><{$lan.pvs}></option>
+          <option value="dateline"><{$lan.time}></option>
+        </select>
+        <input type="submit" name="query" value="<{$lan.query}>">
+        <input type="hidden" name="action" value="items"></td>
+    </tr>
+  </form>
+</table>
+<div class="block2"></div>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+  <tr class="header">
+    <td width="15"><{$lan.id}></td>
+    <td width="160"><{$lan.title}></td>
+    <td><{$lan.editor}></td>
+    <td><{$lan.category}></td>
+    <td><{$lan.order}></td>
+    <td><{$lan.pageview}></td>
+    <td><{$lan.commentnum}></td>
+    <td><{$lan.date}></td>
+    <td align="center"><{$lan.delete}></td>
+    <td align="center"><{$lan.preview}></td>
+    <td align="center"><{$lan.createhtml}></td>
+  </tr>
+  <form name="batchform" action="admincp.php?action=items" method="post" onSubmit="return checkbatch()">
+    <{$str_items}>
+    <tr>
+      <td colspan="15"><script>
+				function checkbatch() {
+					if(document.getElementById('batchtype').value == '') {
+						alert('<{$lan.pleasechoose}>');
+						return false;
+					}
+				}
+				</script>
+          <input name="button" type="button" onClick="invertselection()" value="<{$lan.invertselection}>">
+        <{$lan.manage}>
+        <select name="batchtype" id="batchtype" onChange="batch()">
+          <option value=""><{$lan.pleasechoose}></option>
+          <option value="delete"><{$lan.delete}></option>
+          <option value="createhtml"><{$lan.createhtml}></option>
+          <option value="setorder"><{$lan.modifyorder}></option>
+          <option value="setcategory"><{$lan.modifycategory}></option>
+        </select>
+        <span style="display:none" id="neworder"><{$lan.neworder}>
+          <input type="text" name="neworder" value="0" size="10">
+        </span> <span style="display:none" id="newcategory"><{$lan.newcategory}>
+            <select name="newcategory">
+              <option value="0"><{$lan.pleasechoose}></option>
+              <{$selectcategories}>
+            </select>
+            </span> &nbsp;
+        <input type="submit" value="<{$lan.batch}>" name="batchsubmit"></td>
+    </tr>
+  </form>
+  <form action="<{$indexurl}>" method="post">
+    <tr class="header">
+      <td colspan="15"><{$str_index}>
+          <input type="text" size="3" onChange="" name="page"></td>
+    </tr>
+  </form>
+</table>
+<div class="block"></div>
+</body>
+</html>

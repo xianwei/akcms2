@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function confirmdelete() {
+	if(!confirm('<{$lan.suredelitem}>')) {
+		return false;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<iframe name="work" width="1" height="1" src="" style="display:none"></iframe>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+  <tr class="header">
+  <td width="20"><{$lan.id}></td>
+    <td width="160"><{$lan.pagename}></td>
+    <td width="100"><{$lan.template}></td>
+    <td><{$lan.filename}></td>
+    <td align="center"><{$lan.pageview}></td>
+    <td align="center"><{$lan.preview}></td>
+    <td align="center"><{$lan.delete}></td>
+    <td align="center"><{$lan.createhtml}></td>
+  </tr>
+  <{$str_pages}>
+</table>
+<div class="block"></div>
+<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+  <tr class="header">
+    <td><{$lan.newpage}></td>
+  </tr>
+  <form name="newpage" action="admincp.php?action=specialpages&job=newpage" method="POST">
+    <tr>
+      <td style="text-align:center;padding:0px;"><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tr>
+          <td width="50"><{$lan.pagename}></td>
+          <td><input type="text" name="pagename" size="20" class="mustoffer" onfocus="must(this)"></td>
+        </tr>
+        <tr>
+          <td><{$lan.template}></td>
+          <td><select name="template" class="mustoffer" onfocus="must(this)">
+              <{$str_templates}>
+          </select></td>
+        </tr>
+        <tr>
+          <td><{$lan.filename}></td>
+          <td><input type="text" name="filename" size="20" class="mustoffer" onfocus="must(this)" value="/"></td>
+        </tr>
+        <tr>
+          <td valign="top"><{$lan.timingupdate}></td>
+          <td><table border="0" cellspacing="0" cellpadding="5">
+              <tr>
+                <td colspan="2" bgcolor="#EFEFEF"><input type="radio" name="type" value="0" checked>
+                  <{$lan.notiming}></td>
+              </tr>
+              <tr>
+                <td bgcolor="#FFFFFF" width="270"><input type="radio" name="type" value="1">
+                  <{$lan.everyday}><br>
+                  <input type="radio" name="type" value="2">
+                  <{$lan.date}>&nbsp;
+                  <select name="date">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                    <option value="13">13</option>
+                    <option value="14">14</option>
+                    <option value="15">15</option>
+                    <option value="16">16</option>
+                    <option value="17">17</option>
+                    <option value="18">18</option>
+                    <option value="19">19</option>
+                    <option value="20">20</option>
+                    <option value="21">21</option>
+                    <option value="22">22</option>
+                    <option value="23">23</option>
+                    <option value="24">24</option>
+                    <option value="25">25</option>
+                    <option value="26">26</option>
+                    <option value="27">27</option>
+                    <option value="28">28</option>
+                    <option value="29">29</option>
+                    <option value="30">30</option>
+                    <option value="31">31</option>
+                  </select>
+                  <br>
+                  <input type="radio" name="type" value="3">
+                  <{$lan.timingday}>
+                  <select name="day">
+                    <{foreach key=key item=item from=$lan.weekdays}>
+                    <option value="<{$key}>"><{$item}></option>
+                    <{/foreach}>
+                  </select></td>
+                <td bgcolor="#FFFFFF" valign="top"><{$lan.timinghour}>
+                    <input type="text" name="hour" size="3">
+                  (0-23)&nbsp;<br>
+                  <{$lan.timingminute}>
+                  <input type="text" name="minute" size="3">
+                  (0-59)</td>
+              </tr>
+              <tr>
+                <td colspan="2" bgcolor="#EFEFEF"><input type="radio" name="type" value="4">
+                  <{$lan.timingdistance}>
+                  <input type="text" name="distance" size="5">
+                  (1-65535)</td>
+              </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    </tr>
+    <tr>
+      <td style="text-align:center"><input type="submit" name="savenewpage" size="20" value="<{$lan.save}>"></td>
+    </tr>
+  </form>
+</table>
+</body>
+</html>

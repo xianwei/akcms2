@@ -1,0 +1,32 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function confirmdelete() {
+	if(!confirm('<{$lan.suredelcomment}>')) {
+		return false;
+	}
+}
+function confirmdenyip() {
+	if(!confirm('<{$lan.suredenycommentip}>')) {
+		return false;
+	}
+}
+</script>
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" width="99%" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="10"><{$lan.comment}></td>
+		</tr>
+		<{$comments}>
+	</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

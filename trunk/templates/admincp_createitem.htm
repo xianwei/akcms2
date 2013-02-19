@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>">
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<{if $url_forward != 'stop'}>
+<meta http-equiv="refresh" content="<{$timeout}> url=<{$url_forward}>">
+<{/if}>
+</head>
+
+<body>
+<table width="400" align="center" cellpadding="0" cellspacing="0" class="commontable">
+	<tr>
+		<td>
+		<table border="0" cellspacing="1" cellpadding="4" width="100%">
+			<tr class="header">
+				<td colspan="10"><{$lan.createitembatch}></td>
+			</tr>
+			<form action="admincp.php" method="get" name="batchform">
+			<tr>
+				<td><{$lan.choosecategory}></td>
+				<td>
+                                    	<select name="category">
+                                    	<option value="0"><{$lan.allcategory}></option>
+                                    	<{$categories}>
+                                	</select>
+                                </td>
+                        </tr>
+                        <tr>
+                         	<td><{$lan.choosestep}></td> 
+                         	<td>
+                         		<select name="step">
+                                    	<option value="1">1</option>
+                                    	<option value="5">5</option>
+                                    	<option value="10">10</option>
+                                    	<option value="40">40</option>
+                                    	<option value="50">50</option>
+                                    	<option value="60">60</option>
+                                    	<option value="70">70</option>
+                                	</select>
+                         	</td>
+                        </tr>
+                         <tr>
+                         	<td colspan="10">
+                         		<input type="hidden" name="action" value="createitem">
+                         		<div align="center"><input type="submit" name="createitemsubmit" value="<{$lan.start}>"></div>
+                         	</td>
+                        </tr>
+			</form>
+		</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>

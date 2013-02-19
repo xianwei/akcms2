@@ -1,0 +1,96 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<table cellspacing="0" cellpadding="0" width="99%" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.maintemplate}>:<{$lan.maintemplatetip}><iframe name="work" src="" style="display:none"></iframe></td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="20"><{$lan.id}></td>
+				<td width="70"><{$lan.type}></td>
+				<td><{$lan.filename}></td>
+			</tr>
+			<{$str_maintemplates}>
+			</table>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td><{$lan.addnewtemplate}></td>
+			</tr>
+			<form action="admincp.php?action=templates" method="post">
+			<tr>
+				<td colspan="4">
+					<select name="prefix">
+					<option value="item"><{$lan.itemtemplate}></option>
+					<option value="category"><{$lan.categorytemplate}></option>
+					<option value="section"><{$lan.sectiontemplate}></option>
+					<option value="page"><{$lan.pagetemplate}></option>
+					<option value="search"><{$lan.searchtemplate}></option>
+					</select>
+					<input type="text" name="templatename" size="10" class="mustoffer" onfocus="must(this)">.htm&nbsp;
+					<input type="submit" name="addnewtemplate" value="<{$lan.save}>">
+				</td>
+			</tr>
+			</form>
+			</table>
+			<br>
+			<b><{$lan.tip}></b><br><{$lan.categorydescription}>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br>
+<table cellspacing="0" cellpadding="0" width="99%" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.subtemplate}>:<{$lan.subtemplatetip}></td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="20"><{$lan.id}></td>
+				<td><{$lan.filename}></td>
+			</tr>
+			<{$str_subtemplates}>
+			</table>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td><{$lan.addnewtemplate}></td>
+			</tr>
+			<form action="admincp.php?action=templates" method="post">
+			<tr>
+				<td colspan="4">
+					<input type="text" name="templatename" size="10" class="mustoffer" onfocus="must(this)">.htm&nbsp;
+					<input type="submit" name="addnewtemplate" value="<{$lan.save}>">
+				</td>
+			</tr>
+			</form>
+			</table><br>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

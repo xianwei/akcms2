@@ -1,0 +1,52 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<br>
+<table cellspacing="0" cellpadding="0" width="700" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.customdic}></td>
+		</tr>
+		<tr>
+		<form action="admincp.php?action=dic" method="POST">
+			<td>
+			<{$lan.customdic_description}><br>
+			<textarea name="customdic" cols="60" rows="20"><{$customdic}></textarea>
+			<br>
+			<input type="submit" value="<{$lan.save}>" name="savedic">
+			</td>
+		</form>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br>
+<table cellspacing="0" cellpadding="0" width="700" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.skipdic}></td>
+		</tr>
+		<tr>
+		<form action="admincp.php?action=dic" method="POST">
+			<td>
+			<{$lan.skipdic_description}><br>
+			<textarea name="skipdic" cols="60" rows="20"><{$skipdic}></textarea>
+			<br>
+			<input type="submit" value="<{$lan.save}>" name="savedic">
+			</td>
+		</form>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

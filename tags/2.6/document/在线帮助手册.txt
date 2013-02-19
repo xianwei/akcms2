@@ -1,0 +1,22 @@
+1 帮助手册做成在线的，在后台的任何地方点击帮助都转到官方网站对相应功能的相应语言的详细帮助。
+2 category文章列表的默认模板是category_list.htm，如果不指定的话将用这个模板解析。
+3 取文章列表的标签类似于：<{getitems type="categorylist" category=$category num="2" start=$start}>
+值得注意的是type="categorylist"，不加上这个就不知道同一个模板很多个文章列表，哪一个才是主列表，start=$start也是必须加上的，否则无法分页
+skip表示跳过那些item不要列出来，比如skip="2"，那编号为2的item就不会在列表中出现这个功能一般用在文章最终页，比如：这个栏目的最近的10篇文章就可以选择是不是把正在看的这个也列上去
+skip的参数还可以是多个，比如：433，123，54345这三篇文章不要列出来，那应该写成skip="433,123,54345"
+4 引用模板是<{include file="left.htm"}>
+5 关键字用,或者空格分隔开都有效
+6 分页连接的四个样式：index_current，index_normal，index_first，index_end
+7 比如：文章中有的时候没有作者，那显示“作者：”就不太好。可以这样
+<{if $author eq ""}>
+xxx
+<{else}>
+<{$author}>
+<{/if}>
+总之是smarty的模板语法
+
+8 如果想让模板在多个内码下都可以用，可以加入$charset
+
+9 不同样式的题目可以用在不同的地方，在列表的时候可以用$title,$shorttitle,但是在内容页的时候加入这些就显得不伦不类，应该用$texttitle,$textshorttitle调用不含格式的题目
+
+10 $y, $m, $d, $h, $i, $s 在内容页中，这些变量依次代表，年月日时分秒注意$f

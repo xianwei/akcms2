@@ -1,0 +1,239 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="JavaScript" src="./include/common.js"></script>
+<{include file="xmlhttp.htm"}>
+<script language="javascript" type="text/javascript">
+function setattach(num) {
+	text = "";
+	for(i = 1; i <= num; i ++) {
+		text += "<{$lan.attach}>&nbsp;" + i + "." + first.innerHTML + "<br>";
+	}
+	other.innerHTML = text;
+}
+
+function checksubmit() {
+	t = $('title');
+	c = $('category');
+	s = $('s');
+	if(t.value == "") {
+		alert("<{$lan.notitle}>");
+		t.focus();
+		return false;
+	}
+	if(c.value == "0") {
+		alert("<{$lan.nocategory}>");
+		c.focus();
+		return false;
+	}
+	s.disabled = true;
+}
+
+function hotkey() {
+	if(event.ctrlKey && window.event.keyCode == 13) {
+		if(checksubmit()) {
+			$("newitem").submit();
+		}
+	}
+}
+
+function setcategory() {
+	category = <{$category}>;
+	if(category != 0) {
+		$("category").value = category;
+		setextfields(category);
+	}
+}
+
+function setextfields(category) {
+	ajaxget('admincp.php?action=setitemextfields&rand=' + Math.random() + '&category=' + category, "recall");
+}
+
+function recall() {
+	if (xmlHttp.readyState == 4) {
+		var response = xmlHttp.responseText;
+		$("extfieldstable").innerHTML = response;
+	}
+}
+</script>
+</head>
+<body onload="setcategory()">
+<span id="first" style="display:none">
+<input type="file" name="attach[]" value=""><br>
+<{$lan.description}><{$lan.limit255}><br><textarea name="description[]" cols="60" rows="3"></textarea>
+</span>
+<div class="block"></div>
+<div class="block"></div>
+<form enctype="multipart/form-data" action="admincp.php?action=newitem" method="post" name="newitem" id="newitem" onsubmit="return checksubmit()">
+<table width="99%" border="0" cellpadding="5" cellspacing="1" class="commontable" align="center">
+<input type="hidden" name="MAX_FILE_SIZE" value="<{$maxattachsize}>" />
+<tr class="header">
+	<td colspan="2"><{$lan.item_new}></td>
+</tr>
+<tr>
+	<td width="50"><{$lan.title}></td>
+	<td><input type="text" name="title" id="title" value="" size="50" class="mustoffer" onfocus="must(this)">
+	<{if $color_show eq "1"}>
+	<{include file="colors.htm"}>
+	<{/if}>
+	<{if $style_show eq "1"}>
+	<select name="titlestyle">
+		<option value=""><{$lan.style}></option> 
+		<option value="b"><{$lan.bold}></option>
+		<option value="i"><{$lan.italic}></option>
+	</select>
+	<{/if}>
+	</td>
+</tr>
+<{if $shorttitle_show eq "1"}>
+<tr>
+	<td><{$lan.shorttitle}></td>
+	<td><input type="text" name="shorttitle" value="" size="50"></td>
+</tr>
+<{/if}>
+<{if $aimurl_show eq "1"}>
+<tr>
+	<td><{$lan.aimurl}></td>
+	<td><input type="text" name="aimurl" value="" size="50"></td>
+</tr>
+<{/if}>
+<{if $author_show eq "1"}>
+<tr>
+	<td><{$lan.author}></td>
+	<td><input type="text" name="author" value="" size="15"></td>
+</tr>
+<{/if}>
+<{if $source_show eq "1"}>
+<tr>
+	<td><{$lan.source}></td>
+	<td><input type="text" name="source" value="" size="25"></td>
+</tr>
+<{/if}>
+<tr>
+	<td><{$lan.category}></td>
+	<td>
+	<select name="category" id="category" class="mustoffer" onfocus="must(this)" onchange="setextfields(this.value)">
+	<option value="0"><{$lan.pleasechoose}></option>
+	<{$selectcategories}>
+	</select>
+	<input type="button" value="<{$lan.uselastcategory}>" onclick="$('category').value='<{$lastcategory}>'">
+	</td>
+</tr>
+<{if $section_show eq "1"}>
+<tr>
+	<td><{$lan.section}></td>
+	<td>
+	<select name="section">
+	<{$selectsections}>
+	</select>
+	</td>
+</tr>
+<{/if}>
+<{if $template_show eq "1"}>
+<tr>
+	<td><{$lan.template}></td>
+	<td>
+	<select name="template">
+	<option value=""><{$lan.default}></option>
+	<{$selecttemplates}>
+	</select>
+	</td>
+</tr>
+<{/if}>
+<{if $usefilename eq "1" }>
+<{if $filename_show eq "1" }>
+<tr>
+	<td><{$lan.filename}></td>
+	<td><input type="text" name="filename" value="" size="40"></td>
+</tr>
+<{/if}>
+<{/if}>
+<{if $digest_show eq "1"}>
+<tr>
+	<td><{$lan.digest}></td>
+	<td><textarea name="digest" cols="60" rows="4"></textarea></td>
+</tr>
+<{/if}>
+<{if $richtext eq "0"}>
+<tr>
+	<td><{$lan.text}></td>
+	<td><{include file="admincp_editor.htm"}></td>
+</tr>
+<{else}>
+<tr>
+	<td><{$lan.text}></td>
+	<td><{include file="admincp_richtext_editor.htm"}></td>
+</tr>
+<{/if}>
+<{if $keywords_show eq "1"}>
+<tr>
+	<td><{$lan.keywords}></td>
+	<td><input type="text" name="keywords" value="" size="60"></td>
+</tr>
+<{/if}>
+<{if $picture_show eq "1"}>
+<tr>
+	<td rowspan="4"><{$lan.picture}></td>
+	<td><{$lan.tip}>:<{$lan.picture_tip}></td>
+</tr>
+<tr>
+	<td><{$lan.pictureurl}>:<input type="text" name="picture" value="" size="50"></td>
+</tr>
+<tr>
+	<td><{$lan.or}></td>
+</tr>
+<tr>
+	<td><{$lan.uploadpicture}>:<input type="file" name="uploadpicture" value=""></td>
+</tr>
+<{/if}>
+<{if $order_show eq "1"}>
+<tr>
+	<td><{$lan.order}>1</td>
+	<td><input type="text" name="order" value=""></td>
+</tr>
+<tr>
+	<td><{$lan.order}>2</td>
+	<td><input type="text" name="order2" value=""></td>
+</tr>
+<tr>
+	<td><{$lan.order}>3</td>
+	<td><input type="text" name="order3" value=""></td>
+</tr>
+<tr>
+	<td><{$lan.order}>4</td>
+	<td><input type="text" name="order4" value=""></td>
+</tr>
+<{/if}>
+<{if $attach_show eq "1"}>
+<tr>
+	<td><{$lan.attach}></td>
+	<td><{$lan.attachnum}>
+		<select onchange="setattach(this.value)">
+			<option value="1" selected>1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+		</select><br>
+	<img src="" name="attachpreview" id="attachpreview" onclick="alert(this.fileSize)" width="0" height="0">
+	<div id="other"></div>
+	<script>
+		setattach(1);
+	</script>
+	</td>
+</tr>
+<{/if}>
+</table>
+<div class="block"></div>
+<div id="extfieldstable"></div>
+<div class="block2"></div>
+<center><input type="submit" value="<{$lan.save}>" id="s"></center>
+</form>
+</body>
+</html>

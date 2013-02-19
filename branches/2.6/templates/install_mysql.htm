@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>">
+<title><{$sysname}> <{$sysedition}> <{$lan.install}></title>
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="include/common.js"></script>
+</head>
+
+<body>
+<div class="block2"></div>
+<form name="loginform" method="post" action="install.php">
+<input type="hidden" name="dbtype" value="mysql">
+	<table cellspacing="0" cellpadding="0" align="center" class="commontable">
+		<tr>
+			<td><table border="0" cellspacing="1" cellpadding="4" width="100%">
+					<tr class="header">
+						<td colspan="4"><{$sysname}> <{$sysedition}> <{$lan.install}><input name="action" type="hidden" id="action" value="login"></td>
+					</tr>
+					<tr>
+						<td><{$lan.dbhost}></td>
+						<td><input name="dbhost_tag" type="text" id="dbhost" value="<{$dbhost}>" class="mustoffer" onfocus="must(this)"></td>
+					</tr>
+					<tr>
+						<td><{$lan.dbuser}></td>
+						<td><input name="dbuser_tag" type="text" id="dbuser" class="mustoffer" value="<{$dbuser}>" onfocus="must(this)"></td>
+					</tr>
+					<tr>
+						<td><{$lan.dbpw}></td>
+					  <td><input name="dbpw_tag" type="password" id="dbpw" class="mustoffer" value="<{$dbpw}>" onfocus="must(this)"></td>
+					</tr>
+					<tr>
+						<td><{$lan.dbname}></td>
+					  <td><input name="dbname_tag" type="text" id="dbname" class="mustoffer" value="<{$dbname}>" onfocus="must(this)"></td>
+					</tr>
+					<tr>
+						<td><{$lan.tablepre}></td>
+					  <td><input name="tablepre_tag" type="text" id="tablepre" value="<{$lan.sys}>" class="mustoffer" onfocus="must(this)"></td>
+					</tr>
+					<tr>
+						<td><{$lan.charset}></td>
+					  <td>
+					  	<select name="charset_tag" class="mustoffer" onfocus="must(this)">
+					   	<option value="gbk"><{$lan.gbk}></option>
+					   	<option value="english"><{$lan.english}></option>
+					   	<option value="utf8"><{$lan.utf8}></option>
+					  	</select>
+					  </td>
+					</tr>
+					<tr>
+						<td><{$lan.timedifference}></td>
+					  <td>
+					  	<input type="text" name="timedifference_tag" class="mustoffer" value="<{$timedifference}>" size="3" onfocus="must(this)"><br>
+					  	<{$lan.timedifference_description}><br>
+					  	<{$lan.servertime}>:<{$servertime}>
+					  </td>
+					</tr>
+			</table></td>
+		</tr>
+	</table>
+<center>
+	<br>
+	<input type="hidden" name="language" value="<{$language}>">
+	<input type="submit" name="installsubmit" value="<{$lan.install}>">
+</center>
+</form>
+</body>
+</html>

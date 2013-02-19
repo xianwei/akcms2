@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<br><br>
+<table cellspacing="0" cellpadding="0" width="700" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.extfieldslist}></td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td><{$lan.field}></td>
+				<td><{$lan.alias}></td>
+				<td><{$lan.type}></td>
+				<td><{$lan.option}></td>
+			</tr>
+			<{$exts}>
+			</table>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<form action="admincp.php?action=itemexts&job=newext" method="post">
+			<tr class="header">
+				<td colspan="10"><{$lan.addfield}></td>
+			</tr>
+			<tr>
+				<td><{$lan.alias}></td>
+				<td><input type="text" value="" name="name" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.type}></td>
+				<td>
+					<select name="type" class="mustoffer" onfocus="must(this)">
+						<option value="char">char</option>
+						<option value="int">int</option>
+						<option value="float">float</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td><{$lan.length}></td>
+				<td>
+					<input type="text" value="12" name="length" class="mustoffer" onfocus="must(this)">
+				</td>
+			</tr>
+			<input type="hidden" value="" name="standby">
+			<!--<tr>
+				<td></td>
+				<td><input type="text" value="" name="standby" size="70"></td>
+			</tr>-->
+			<tr>
+				<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="section_new_submit"></td>
+			</tr>
+			</form>
+			</table>
+			<br>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

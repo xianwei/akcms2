@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function deletesection(id) {
+	if(confirm('<{$lan.suredelsection}>')) {
+		document.location='admincp.php?action=deletesection&id='+id;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<br><br>
+<table cellspacing="0" cellpadding="0" width="700" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.accountmanage}><iframe name="work" width="1" height="1" src="" style="display:none"></iframe>
+</td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="35"><{$lan.account}></td>
+				<td width="35"><{$lan.delete}></td>
+				<td><{$lan.status}></td>
+				<td><{$lan.changestatus}></td>
+				<td width="100"><{$lan.resetpassword}></strong></td>
+				<td width="50"><{$lan.itemnum}></td>
+			</tr>
+			<{$users}>
+			</table>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<form action="admincp.php?action=manageaccounts&job=newaccount" method="post">
+			<tr class="header">
+				<td colspan="10"><{$lan.newaccount}></td>
+			</tr>
+			<tr>
+				<td><{$lan.account}></td>
+				<td><input type="text" value="" name="account" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.password}></td>
+				<td><input type="password" name="password" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="section_new_submit"></td>
+			</tr>
+			</form>
+			</table>
+			<br>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

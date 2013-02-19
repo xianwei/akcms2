@@ -1,0 +1,102 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function deletespider(id) {
+	if(confirm('<{$lan.suredelspider}>')) {
+		document.location='admincp.php?action=spiders&job=delspider&id='+id;
+	}
+}
+function deleterule(id) {
+	if(confirm('<{$lan.suredelspiderrule}>')) {
+		document.location='admincp.php?action=spiders&job=delrule&id='+id;
+	}
+}
+function checkspider() {
+	document.addspider.save.disabled = true;
+	if(document.addspider.spidername.value == "") {
+		alert('spider title must be offered')
+		document.addspider.save.disabled = false;
+		return false;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<div class="block"></div>
+<div class="block"></div>
+<table cellspacing="0" cellpadding="0" width="99%" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><div class="righttop"><a href="http://www.akcms.com/manual/spider.htm" target="_blank"><{$lan.help}></a></div><{$lan.spiderrulemanage}></td>
+		</tr>
+		<tr>
+			<td>
+			<div class="block"></div>
+			<div class="block"></div>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="35"><{$lan.id}></td>
+				<td><{$lan.rulename}></td>
+				<td><{$lan.preview}></td>
+				<td><{$lan.export}></td>
+				<td><{$lan.delete}></td>
+			</tr>
+			<{$spiderruleslist}>
+			<tr>
+				<td colspan="5"><input type="button" onclick="document.location='admincp.php?action=spiders&job=addrule'" value="<{$lan.addrule}>">&nbsp;<input type="button" onclick="document.location='admincp.php?action=spiders&job=importspiderrule'" value="<{$lan.import}>"></td>
+			</tr>
+			</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<div class="block"></div>
+<div class="block"></div>
+<table cellspacing="0" cellpadding="0" width="99%" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%" id="spiders">
+		<tr class="header">
+			<td colspan="3"><div style="float:right"><a href="http://www.akcms.com/manual/spider.htm" target="_blank"><{$lan.help}></a></div><{$lan.timingspider_manage}><iframe name="work" src="" style="display:none"></iframe>
+</td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="35"><{$lan.id}></td>
+				<td><{$lan.spidername}></td>
+				<td><{$lan.lastwork}></td>
+				<td><{$lan.spiderrule}></td>
+				<td><{$lan.preview}></td>
+				<td><{$lan.export}></td>
+				<td><{$lan.runnow}></td>
+				<td><{$lan.delete}></td>
+			</tr>
+			<{$spiderslist}>
+			<tr>
+				<td colspan="8"><input type="button" onclick="document.location='admincp.php?action=spiders&job=addspider'" value="<{$lan.addrule}>">&nbsp;<input type="button" onclick="document.location='admincp.php?action=spiders&job=importspider'" value="<{$lan.import}>"></td>
+			</tr>
+			</table>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<script>
+if(document.addspider.rule.length == 0) {
+	document.getElementById("spiders").disabled = true;
+}
+</script>
+<br>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>">
+<title><{$sitename}> <{$lan.cp}></title>
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="block2"></div>
+<form name="loginform" method="post" action="login.php">
+	<input type="hidden" name="preurl" value="<{$preurl}>"> 
+	<table border="0" cellspacing="1" cellpadding="5" width="210" class="commontable">
+		<tr class="header">
+			<td colspan="4"><{$sysname}> <{$sysedition}> <{$lan.login}><input name="action" type="hidden" id="action" value="login"></td>
+		</tr>
+		<tr>
+			<td width="35" align="right"><{$lan.username}></td>
+			<td><input name="username" type="text" id="username"></td>
+		</tr>
+		<tr>
+			<td valign="top" align="right"><{$lan.password}></td>
+		  <td><input name="password" type="password" id="password"></td>
+		</tr>
+		<tr>
+			<td></td>
+		  <td><input type="checkbox" name="rememberlogin" id="rememberlogin" value="1"><label for="rememberlogin"><{$lan.rememberlogin}></label></td>
+		</tr>
+	</table>
+<div class="block2"></div>
+<center><input type="submit" name="loginsubmit" value="<{$lan.login}>"></center>
+</form>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+<script language="javascript">
+function deletespider(id) {
+	if(confirm('<{$lan.suredelspider}>')) {
+		document.location='admincp.php?action=spiders&job=delspider&id='+id;
+	}
+}
+function deleterule(id) {
+	if(confirm('<{$lan.suredelspiderrule}>')) {
+		document.location='admincp.php?action=spiders&job=delrule&id='+id;
+	}
+}
+function checkspider() {
+	document.addspider.save.disabled = true;
+	if(document.addspider.spidername.value == "") {
+		alert('spider title must be offered')
+		document.addspider.save.disabled = false;
+		return false;
+	}
+}
+</script>
+<script language="javascript" src="include/common.js"></script>
+</head>
+<body>
+<br><br>
+<table cellspacing="0" cellpadding="0" width="700" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.spiderrulemanage}>
+</td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="35"><{$lan.id}></td>
+				<td><{$lan.rulename}></td>
+				<td><{$lan.order}></td>
+				<td><{$lan.catcheditems}></td>
+				<td><{$lan.delete}></td>
+			</tr>
+			<{$spiderruleslist}>
+			</table>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<form action="admincp.php?action=spiders&job=addrule" method="post" name="addrule">
+			<tr class="header">
+				<td colspan="10"><{$lan.addrule}></td>
+			</tr>
+			<tr>
+				<td><{$lan.rulename}></td>
+				<td><input type="text" value="" name="rulename" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.exampleurl}></td>
+				<td><input type="text" value="http://" name="exampleurl" class="mustoffer" size="50" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.title}></td>
+				<td><input type="text" name="title" value="" size="50" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.shorttitle}></td>
+				<td><input type="text" name="shorttitle" value="" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.aimurl}></td>
+				<td><input type="text" name="aimurl" value="" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.author}></td>
+				<td><input type="text" name="author" value="" size="15"></td>
+			</tr>
+			<tr>
+				<td><{$lan.source}></td>
+				<td><input type="text" name="source" value="" size="15"></td>
+			</tr>
+			<tr>
+				<td><{$lan.editor}></td>
+				<td><input type="text" name="editor" value="" size="15"></td>
+			</tr>
+			<tr>
+				<td><{$lan.template}></td>
+				<td>
+				<select name="template">
+				<option value=""><{$lan.default}></option>
+				<{$selecttemplates}>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td><{$lan.digest}></td>
+				<td><input type="text" name="digest" value="" size="60"></td>
+			</tr>
+			<tr>
+				<td><{$lan.data}></td>
+				<td><input type="text" name="data" value="" size="60" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.keywords}></td>
+				<td><input type="text" name="keywords" value="" size="60"></td>
+			</tr>
+			<tr>
+				<td><{$lan.filename}></td>
+				<td><input type="text" name="filename" value="" size="60"></td>
+			</tr>
+			<tr>
+				<td><{$lan.picture}></td>
+				<td><input type="text" name="picture" value="" size="60"></td>
+			</tr>
+			<tr>
+				<td><{$lan.order}></td>
+				<td><input type="text" name="order" value=""></td>
+			</tr>
+			<tr>
+				<td><{$lan.ifcreatehtml}></td>
+				<td>
+				<select name="html">
+				<option value="1"><{$lan.yes}></option>
+				<option value="0"><{$lan.no}></option>
+				</select>
+				</td>
+			</tr>
+			<{$exts}>
+			<{$fields}>
+			<tr>
+				<td><{$lan.replace}></td>
+				<td><textarea name="replace" cols="50" rows="5"></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="submit"</td>
+			</tr>
+			</form>
+			</table>
+			<br>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<br><br>
+<table cellspacing="0" cellpadding="0" width="700" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%" id="spiders">
+		<tr class="header">
+			<td colspan="3"><div style="float:right"><a href="admincp.php?action=manual&section=spider" target="_blank"><{$lan.helpcenter}></a></div><{$lan.timingspider_manage}><iframe name="work" src="" style="display:none"></iframe>
+</td>
+		</tr>
+		<tr>
+			<td>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<tr class="header">
+				<td width="35"><{$lan.id}></td>
+				<td><{$lan.spidername}></td>
+				<td><{$lan.lastwork}></td>
+				<td><{$lan.spiderrule}></td>
+				<td><{$lan.runnow}></td>
+				<td><{$lan.delete}></td>
+			</tr>
+			<{$spiderslist}>
+			</table>
+			<br>
+			<table width="99%" border="0" align="center" cellpadding="5" cellspacing="1" class="commontable">
+			<form action="admincp.php?action=spiders&job=addspider" method="post" name="addspider" onsubmit="return checkspider()">
+			<tr class="header">
+				<td colspan="10"><{$lan.addspider}></td>
+			</tr>
+			<tr>
+				<td><{$lan.spidername}></td>
+				<td><input type="text" value="" name="spidername" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderrule}></td>
+				<td><select name="rule">
+				<{$selectrules}>
+				</select></td>
+			</tr>
+			<tr>
+				<td><{$lan.category}></td>
+				<td><select name="category" class="mustoffer" onfocus="must(this)">
+				<{$selectcategories}>
+				</select></td>
+			</tr>
+			<tr>
+				<td><{$lan.section}></td>
+				<td><select name="section">
+				<{$selectsections}>
+				</select></td>
+			</tr>
+			<tr>
+				<td><{$lan.listurl}></td>
+				<td><input value="http://" name="listurl" size="50" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.liststarttag}></td>
+				<td><input value="" name="start" size="50" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.listendtag}></td>
+				<td><input value="" name="end" size="50" class="mustoffer" onfocus="must(this)"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisturlcharacter}></td>
+				<td><input value="" name="urlcharacter" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisturlskip}></td>
+				<td><input value="" name="urlskip" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisttitlecharacter}></td>
+				<td><input value="" name="titlecharacter" size="50"></td>
+			</tr>
+			<tr>
+				<td><{$lan.spiderlisttitleskip}></td>
+				<td><input value="" name="titleskip" size="50"></td>
+			</tr>
+			<tr style="display: <{$forbidautorefresh}>">
+				<td><{$lan.timing}></td>
+				<td>
+<table border="0" cellspacing="0" cellpadding="5">
+  <tr>
+    <td colspan="2" bgcolor="#EFEFEF"><input type="radio" name="type" value="0" checked><{$lan.notiming}></td>
+  </tr>
+  <tr>
+    <td bgcolor="#FFFFFF" width="270"><input type="radio" name="type" value="1"><{$lan.everyday}><br>
+    	<input type="radio" name="type" value="2"><{$lan.date}>&nbsp;
+    		<select name="date">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
+			<option value="13">13</option>
+			<option value="14">14</option>
+			<option value="15">15</option>
+			<option value="16">16</option>
+			<option value="17">17</option>
+			<option value="18">18</option>
+			<option value="19">19</option>
+			<option value="20">20</option>
+			<option value="21">21</option>
+			<option value="22">22</option>
+			<option value="23">23</option>
+			<option value="24">24</option>
+			<option value="25">25</option>
+			<option value="26">26</option>
+			<option value="27">27</option>
+			<option value="28">28</option>
+			<option value="29">29</option>
+			<option value="30">30</option>
+			<option value="31">31</option>
+		</select><br>
+    	<input type="radio" name="type" value="3"><{$lan.timingday}><select name="day">
+    		<{foreach key=key item=item from=$lan.weekdays}>
+			<option value="<{$key}>"><{$item}></option>
+		<{/foreach}>
+		</select></td>
+		<td bgcolor="#FFFFFF" valign="top"><{$lan.timinghour}><input type="text" name="hour" size="3">(0-23)&nbsp;<br><{$lan.timingminute}><input type="text" name="minute" size="3">(0-59)</td>
+  </tr>
+  <tr>
+    <td colspan="2" bgcolor="#EFEFEF"><input type="radio" name="type" value="4"><{$lan.timingdistance}><input type="text" name="distance" size="5">(1-65535)</td>
+  </tr>
+</table></td>
+			</tr>
+			<tr>
+				<td colspan="10" align="center"><input type="submit" value="<{$lan.save}>" name="save"></td>
+			</tr>
+			</form>
+			</table>
+			<br>
+			</td>
+		</tr>
+		</table>
+	</td>
+</tr>
+</table>
+<script>
+if(document.addspider.rule.length == 0) {
+	document.getElementById("spiders").disabled = true;
+}
+</script>
+<br>
+</body>
+</html>

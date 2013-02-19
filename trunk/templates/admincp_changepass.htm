@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<table cellspacing="0" cellpadding="0" align="center" class="commontable">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<form action="admincp.php?action=changepassword&submit=1" method="post">
+		<tr class="header">
+			<td colspan="3"><{$lan.changepassword}></td>
+		</tr>
+		<tr>
+			<td><{$lan.oldpassword}></td>
+			<td><input type="password" value="" name="oldpassword"></td>
+		</tr>
+		<tr>
+			<td><{$lan.newpassword}></td>
+			<td><input type="password" value="" name="newpassword"></td>
+		</tr>
+		<tr>
+			<td><{$lan.newpassword2}></td>
+			<td><input type="password" value="" name="newpassword2"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center"><input type="submit" value="<{$lan.save}>"></td>
+		</tr>
+		</form>
+	</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

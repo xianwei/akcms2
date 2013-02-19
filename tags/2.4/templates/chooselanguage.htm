@@ -1,0 +1,28 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>">
+<title><{$sysname}> <{$sysedition}> <{$lan.install}></title>
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div class="block2"></div>
+	<table cellspacing="0" cellpadding="0" align="center" class="commontable">
+		<tr>
+			<td><table border="0" cellspacing="1" cellpadding="4" width="100%">
+					<tr class="header">
+						<td colspan="4"><{$sysname}> <{$sysedition}> Install</td>
+					</tr>
+					<tr>
+						<td>
+<select onchange="document.location='install.php?language='+this.value">
+<option value="">Please choose language</option>
+<option value="english">English</option>
+<option value="chinese">Chinese</option>
+</select></td>
+					</tr>
+			</table></td>
+		</tr>
+	</table>
+</body>
+</html>

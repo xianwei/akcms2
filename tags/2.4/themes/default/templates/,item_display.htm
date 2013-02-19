@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title><{$texttitle}></title>
+</head>
+
+<body>
+题目：<{$title}><br>
+无格式题目：<{$texttitle}>（屏蔽了题目的粗体、颜色等样式用于一些特殊的场合，比如：head的title中，js程序中，标签的属性中等等）<br>
+短题目：<{$shorttitle}><br>
+无格式短题目：<{$textshorttitle}><br>
+栏目名：<{$categoryname}><br>
+栏目ID：<{$category}><br>
+作者：<{$author}><br>
+编辑：<{$editor}><br>
+阅读量：<{$pageview}><br>
+关键字：<{$keywords}><br>
+来源：<{$source}><br>
+时间：<{$y}>-<{$m}>-<{$d}> <{$h}>:<{$i}>:<{$s}><br>
+
+摘要：<{$digest}><br>
+正文：<{$data}><br>
+
+<br>相关文章：<br>
+<{getitems keywords=$keywords}>
+
+<br>本栏目的文章：<br>
+<{getitems category=$category}>
+
+<br>上一篇（比本篇发表早的一篇）<br>
+<{getitems next=$id orderby="id_reverse" num="1" emptymessage="已是最前一篇"}><br>
+
+<br>下一篇（比本篇发表晚的一篇）<br>
+<{getitems last=$id orderby="id" num="1" emptymessage="已是最后一篇"}><br>
+<hr>
+更多演示，请访问在线手册：<a href="http://www.akcms.com/manual/manual.htm" target="_blank">http://www.akcms.com/manual/manual.htm</a>
+</body>
+</html>

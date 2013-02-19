@@ -1,0 +1,98 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=<{$header_charset}>" />
+<link href="<{$akurl}>images/admin/admin.css" rel="stylesheet" type="text/css">
+</head>
+<body">
+<div class="block"></div>
+<div class="block"></div>
+<table cellspacing="0" cellpadding="0" width="99%" class="commontable" align="center">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.welcome}></td>
+		</tr>
+		<tr>
+			<td>
+				<{$lan.welcome}>,<{$admin_id}><br>
+				<a href="http://www.akcms.com/" target="_blank"><{$lan.officialsite}></a><br>
+				<a href="http://www.akcms.com/bbs/" target="_blank"><{$lan.officialbbs}></a><br>
+				<a href="http://www.akcms.com/manual/" target="_blank"><{$lan.helpcenter}></a><br>
+				<iframe src="http://www.akcms.com/cn/welcome.htm" frameborder="0" width="100%" height="220"></iframe>
+			</td>
+		</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<div class="block2"></div>
+<table cellspacing="0" cellpadding="0" width="99%" class="commontable" align="center">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.siteinfo}></td>
+		</tr>
+		<tr>
+			<td>
+				<{$lan.siteitems}>:<{$items}><br>
+				<{$lan.sitepvs}>:<{$pvs}><br>
+				<{$lan.siteeditors}>:<{$editors}><br>
+				<{$lan.siteattachments}>:<{$attachments}><br>
+				<{$lan.siteattachmentsizes}>:<{$attachmentsizes}><br>
+			</td>
+		</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<div class="block2"></div>
+<table cellspacing="0" cellpadding="0" width="99%" class="commontable" align="center">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.systeminfo}></td>
+		</tr>
+		<tr>
+			<td>
+				<{$lan.os}>:<{$os}><br>
+				<{$lan.phpversion}>:<{$phpversion}><br>
+				<{$lan.mysqlversion}>:<{$mysqlversion}><br>
+				<{$lan.akversion}>:<{$akversion}><br>
+				<{$lan.maxupload}>:<{$maxupload}><br>
+				<{$lan.maxexetime}>:<{$maxexetime}> S<br>
+				<{$lan.servertime}>:<{$servertime}><br>
+				<{$lan.correcttime}>:<{$correcttime}><br>
+			</td>
+		</tr>
+	</table>
+	</td>
+</tr>
+</table>
+<div class="block2"></div>
+<table cellspacing="0" cellpadding="0" width="99%" class="commontable" align="center">
+<tr>
+	<td>
+	<table border="0" cellspacing="1" cellpadding="4" width="100%">
+		<tr class="header">
+			<td colspan="3"><{$lan.tools}></td>
+		</tr>
+		<tr>
+			<td>
+				<a href="welcome.php?action=phpinfo" target="_blank">phpinfo</a><br>
+				<a href="welcome.php?action=optimize"><{$lan.optimize}></a><br>
+				<a href="welcome.php?action=updatecache"><{$lan.updatecache}></a><br>
+				<a href="welcome.php?action=checkwritable"><{$lan.checkwritable}></a><br>
+				<a href="welcome.php?action=copyfront"><{$lan.copyfront}></a><br>
+				<a href="welcome.php?action=runsql"><{$lan.runsql}></a><br>
+				<a href="welcome.php?action=updatefilenames"><{$lan.updatefilenames}></a><br>
+			</td>
+		</tr>
+	</table>
+	</td>
+</tr>
+</table>
+</body>
+</html>

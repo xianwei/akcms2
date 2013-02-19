@@ -1,0 +1,21 @@
+<{php}>
+$colors = array();
+for($i = 0; $i < 3; $i ++) {
+	for($j = 0; $j < 3; $j ++) {
+		for($k = 0; $k < 3; $k ++) {
+			$c = (string)$i.(string)$j.(string)$k;
+			$c = str_replace('0', '00', $c);
+			$c = str_replace('1', '80', $c);
+			$c = str_replace('2', 'FF', $c);
+			$colors[] = $c;
+		}
+	}
+}
+$this->assign("colors", $colors);
+<{/php}>
+<select name="titlecolor"> 
+	<option value=""><{$lan.color}></option>
+	<{foreach name=fonts item=fontcolor from=$colors}>
+	<option value="<{$fontcolor}>" style='background-color:<{$fontcolor}>'>&nbsp;</option>
+	<{/foreach}>
+</select>
